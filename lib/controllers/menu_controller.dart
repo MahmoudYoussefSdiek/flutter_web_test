@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:web_test/constants/style.dart';
 import 'package:web_test/routing/routes.dart';
 
-class MenuController extends GetxController {
-  static MenuController instance = Get.find();
+class MenuControllerLogic extends GetxController {
+  static MenuControllerLogic instance = Get.find();
   var activeItem = overViewPageRoute.obs;
   var hoverItem = ''.obs;
 
@@ -17,7 +17,7 @@ class MenuController extends GetxController {
   }
 
   isActive(String itemName) => activeItem.value == itemName;
-  isHover(String itemName) => hoverItem.value == itemName;
+  isHovering(String itemName) => hoverItem.value == itemName;
 
   Widget returnIconFor(String itemName) {
     switch (itemName) {
@@ -49,7 +49,7 @@ class MenuController extends GetxController {
 
     return Icon(
       icon,
-      color: isHover(itemName) ? dark : lightGray,
+      color: isHovering(itemName) ? dark : lightGray,
     );
   }
 }
